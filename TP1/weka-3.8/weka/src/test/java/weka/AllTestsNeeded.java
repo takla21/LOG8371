@@ -16,6 +16,8 @@ public class AllTestsNeeded extends TestSuite{
 	    suite.addTest(weka.classifiers.bayes.NaiveBayesTest.suite());
 	    
 	    suite.addTest(weka.classifiers.trees.DecisionStumpTest.suite());
+		
+		suite.addTest(weak.associations.FPGrowthCustomTest.suite());
 
 	    return suite;
 	  }
