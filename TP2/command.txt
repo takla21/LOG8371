@@ -1,0 +1,4 @@
+sudo docker build -t aminek123/jguweka:OAS3 .
+sudo docker run --name mongodb -d mongo
+sudo docker run -p 8080:8080 --link mongodb:mongodb aminek123/jguweka:OAS3
+http://geekspearls.blogspot.com/2016/08/configure-jprofiler-92-to-profiling.html
