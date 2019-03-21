@@ -1,0 +1,7 @@
+1- build le container weka-rest avec cette commande
+	sudo docker build -t aminek123/jguweka:OAS3 .
+2- build le container mongodb
+	sudo docker run --name mongodb -d mongo
+3- Roulez le container weka-rest avec cette commande.
+	sudo docker run -p 8080:8080 --link mongodb:mongodb aminek123/jguweka:OAS3
+4- Voila, vous avez deploye votre service weka
