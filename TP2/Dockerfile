@@ -34,13 +34,11 @@ RUN   mkdir /jmeter \
       && tar -xzf apache-jmeter-$JMETER_VERSION.tgz \
       && rm apache-jmeter-$JMETER_VERSION.tgz
 
-#ADD jmeter-plugins/lib /jmeter/apache-jmeter-$JMETER_VERSION/lib
+ADD tests tests
+ENV JMETER_HOME /jmeter/apache-jmeter-$JMETER_VERSION/
+ENV PATH $JMETER_HOME/bin:$PATH
 
-#ADD sample-test sample-test
-#ENV JMETER_HOME /jmeter/apache-jmeter-$JMETER_VERSION/
-#ENV PATH $JMETER_HOME/bin:$PATH
-
-#ENV JPAGENT_PATH="-agentpath:/usr/local/jprofiler9/bin/linux-x64/libjprofilerti.so=nowait"#
+ENV JPAGENT_PATH="-agentpath:/usr/local/jprofiler9/bin/linux-x64/libjprofilerti.so=nowait"#
 
 # Create a non-priviledged user to run Tomcat
 RUN useradd -u 501 -m -g root tomcat && chown -R tomcat:root /usr/local/tomcat
