@@ -1,7 +1,7 @@
 #!/bin/bash
 
 bayes_net () {
-	curl --silent --output /dev/null -X POST "http://$1:8080/algorithm/NaiveBayes" -H "accept: text/uri-list" -H "Content-Type: multipart/form-data" -F "datasetUri=" -F "batchSize=100" -F "useKernelEstimator=0" -F "useSupervisedDiscretization=1" -F "validation=CrossValidation" -F "validationNum=10" -F "file=@breast-cancer.arff"
+	curl -X POST "http://$1:8080/algorithm/NaiveBayes" -H "accept: text/uri-list" -H "Content-Type: multipart/form-data" -F "datasetUri=" -F "batchSize=100" -F "useKernelEstimator=0" -F "useSupervisedDiscretization=1" -F "validation=CrossValidation" -F "validationNum=10" -F "file=@breast-cancer.arff"
 }
 
 decision_stump () {
