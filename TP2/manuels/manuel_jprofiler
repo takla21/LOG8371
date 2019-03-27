@@ -2,13 +2,13 @@
 	https://www.ej-technologies.com/products/jprofiler/overview.html (Prenez note de la version du JProfiler que vous avez telecharger)
 
 2- Avant de deployer votre container weka, veuillez modifier les fichier Dockerfile et docker-compose.yml
-	2.1- Changement a faire au fichier Dockerfile
-		2.1.1 Installer JProfiler (meme version que sur votre ordinateur, sinon ca ne fonctionnera pas)
+	2.1- Changement à faire au fichier Dockerfile
+		2.1.1 Installer JProfiler (même version que sur votre ordinateur, sinon ca ne fonctionnera pas)
 			RUN wget http://download-keycdn.ej-technologies.com/jprofiler/jprofiler_linux_10_1_5.tar.gz -P /tmp/ &&\
  tar -xzf /tmp/jprofiler_linux_10_1_5.tar.gz -C /usr/local &&\
  rm /tmp/jprofiler_linux_10_1_5.tar.gz
 		2.1.2 Exposer le port 8849
-	2.2 Changement a faire au fichier docker-compose.xml
+	2.2 Changement à faire au fichier docker-compose.xml
 		2.2.1 Ajouter le port 8849 au liste des ports ouvert
 
 3- Deployer votre docker weka (voir manuel_docker.txt)
@@ -16,7 +16,7 @@
 4- Entrez dans votre container avec la commande suivante:
 	sudo docker exec -it [nom du container] bash
 
-5- Allez a ce directory: /usr/local/jprofilerx
+5- Allez à ce répertoire: /usr/local/jprofilerx
 
 6- Rouler JProfiler dans votre container
 	6.1- Executer la commande: bin/jpenable
@@ -25,19 +25,19 @@
 
 7- Ouvrez JProfiler sur votre ordinateur
 
-8- Creer une nouvelle session [ctrl + n]
+8- Créer une nouvelle session [ctrl + n]
 
 9- Voir image session_configuration
-	9.1- Attacher la session a une autre session
-	9.2- Entrez l'addresse ip du docker
+	9.1- Attacher la session à une autre session
+	9.2- Entrez l'addresse IP du docker
 		9.2.1 faite la commande ifconfig dans le container
-	9.3- Entrez le port que vous avez defini plus tot
+	9.3- Entrez le port que vous avez défini plus tôt
 
 10- Selectionner l'option instrumentation, puisqu'on mesure plusieurs ressources
 
-11- Cliquer sur Ok.
+11- Cliquer sur le bouton Òk.
 
-11- Vous pouvez voir maintenant l'etat des consommation des ressources du container
+11- Vous pouvez voir maintenant l'état des consommation des ressources du container
 
-12- Dans le dossier test [dans notre github], il y a un fichier executable qui permet de tester des scenarios
-	./test.sh [nb requetes] [algorithme(b|d|k)] [ip du container]
+12- Dans le dossier test [dans notre github], il y a un fichier executable qui permet de tester des scénarios
+	./test.sh [nb requetes] [ip du container]
