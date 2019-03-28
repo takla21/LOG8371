@@ -39,5 +39,5 @@
 
 11- Vous pouvez voir maintenant l'état des consommation des ressources du container
 
-12- Dans le dossier test [dans notre github], il y a un fichier executable qui permet de tester des scénarios
+12- Dans le dossier tests [dans notre github], il y a un fichier executable qui permet de tester des scénarios
 	./test.sh [nb requetes] [ip du container]
