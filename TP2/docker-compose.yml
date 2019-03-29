@@ -1,4 +1,4 @@
-version: '3'
+version: '2.1'
 services:
   mongo:
     image: mongo
@@ -16,6 +16,7 @@ services:
       - "service-name:jguweka"
       - "service-type:app-srv"
       - "environment:test"
+    mem_limit: 100M
   lb:
     image: dockercloud/haproxy
     links:
