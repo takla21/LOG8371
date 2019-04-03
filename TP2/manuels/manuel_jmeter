@@ -1,0 +1,35 @@
+1 - Télecharger Jmeter sur votre ordinateur
+    https://jmeter.apache.org/download_jmeter.cgi
+
+2 - Pour lancer Jmeter, rendez-vous dans le dossier 'Jmeter/bin' puis lancer le script 'jmeter.sh'
+    sudo sh jmeter.sh
+    
+3 - Création des load tests
+    'fichier -> template' et choisir le template 'Recording'. 
+    Des élements sont ajoutés automatiquement. Les plus importants sont 'HTTP(S) Test Script Recorder' (enregistrera les requetes) et dans 'Thread Group' le 'Recording Controller' qui contiendra les requête enregitrées à la fin de l'enregistrement.
+    1. Veiller à ce que le port dans 'HTTP(S) Test Script Recorder' soit bien 8888.
+    2. Dans 'Thread Group', entrer dans 'Number of Threads (users)' le load que vous souhaiter tester (requetes simultannées).
+4 - Lancer le conteneur Weka Rest.
+
+5 - Lancer l'enregistrement des requêtes 
+    1. Cliquer sur le 'HTTP(S) Test Script Recorder' sur Jmeter. 
+    2. Cliquer sur le bouton 'Start' de la fenêtre de l'enregistreur
+    3. Une fenêtre apparaitre pour vous dire qu'un certificat de confiance a été placé dans le dossier bin de Jmeter. 
+    
+6 - Configurez votre navigateur internet
+    Exemple pour Firefox :
+        1. Aller dans Paramètre -> Proxy -> Settings. Selectionner 'Manual proxy configuration' et entrer HTTP Proxy : localhost et Port: 8888. Selectionner 'Use this proxy server for all protocols
+        2. Allerd ans Paramètre -> certificats. Selectionner 'Import' et choisissez le certificat créé à l'étape 5.
+
+7 - Lancer les requêtes
+    1. Taper localhost:8080 dans la barre de recherche pour accéder à Weka
+    2. Sélectionner les requêtes que vous souhaitez lancer 'Try it now', puis 'Execute'.
+    
+8 - Stopper l'enregistrement. (Appuyer sur le bouton stop de la fenêtre flottante)
+
+9 - Enregistrer le load test dans '/tests' en tant que 'test_recorder.jmx'
+
+10 - Lancer les tests
+    1. Se rendre dans le dossier du lab à l'aide du terminal. 
+    2. Sur le terminal : sudo '<Chemin Jmeter>/bin/jmeter.sh' -t 'tests/test_recorder.jmx' -n -l tests/jmeter_results_recorder.csv
+    3. Il est possible que l'ordinateur plante si users > 1000. N'hésitez pas à quitter avant la fin, les résultats sont utilisables.
